@@ -278,3 +278,7 @@ end
 
 activateBtn.MouseButton1Click:Connect(tryActivate)
 keyBox.FocusLost:Connect(function(enter) if enter then tryActivate() end end)
+
+if _G.RUPING_KEY and _G.RUPING_KEY ~= "" then
+    task.spawn(tryActivate)
+end
