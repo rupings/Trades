@@ -3,8 +3,8 @@ local LP = Players.LocalPlayer
 local http = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
 
-local SUPABASE_URL = "https://XXXX.supabase.co"
-local SUPABASE_KEY = "your-anon-key"
+local SUPABASE_URL = "https://nyfxhccyuaojuevqmfum.supabase.co"
+local SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55ZnhoY2N5dWFvanVldnFtZnVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NjcyNjAsImV4cCI6MjA5MjI0MzI2MH0.NlEO_Hli3bM2x84Kvt-7duAlkEolD8fOCcbtowcxdPc"
 local SCRIPT_URL = SUPABASE_URL .. "/storage/v1/object/public/scripts/main.lua"
 local PLACE_ID = 108924807761800
 
