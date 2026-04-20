@@ -6,89 +6,11 @@ local TweenService = game:GetService("TweenService")
 local SUPABASE_URL = "https://nyfxhccyuaojuevqmfum.supabase.co"
 local SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55ZnhoY2N5dWFvanVldnFtZnVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NjcyNjAsImV4cCI6MjA5MjI0MzI2MH0.NlEO_Hli3bM2x84Kvt-7duAlkEolD8fOCcbtowcxdPc"
 local SCRIPT_URL = SUPABASE_URL .. "/storage/v1/object/public/scripts/main.lua"
-local PLACE_ID = 108924807761800
+local PLACE_ID = 121864768012064
 
 if game.PlaceId ~= PLACE_ID then
-    local sg = Instance.new("ScreenGui")
-    sg.Name = "RupingWrong"
-    sg.ResetOnSpawn = false
-    sg.DisplayOrder = 99999
-    sg.IgnoreGuiInset = true
-    sg.Parent = LP.PlayerGui
-
-    local ov = Instance.new("Frame")
-    ov.Size = UDim2.new(1,0,1,0)
-    ov.BackgroundColor3 = Color3.fromRGB(8,6,16)
-    ov.BackgroundTransparency = 0.3
-    ov.BorderSizePixel = 0
-    ov.Parent = sg
-
-    local win = Instance.new("Frame")
-    win.Size = UDim2.new(0,380,0,180)
-    win.Position = UDim2.new(0.5,-190,0.5,-90)
-    win.BackgroundColor3 = Color3.fromRGB(13,12,22)
-    win.BackgroundTransparency = 0.04
-    win.BorderSizePixel = 0
-    win.Parent = sg
-    Instance.new("UICorner", win).CornerRadius = UDim.new(0,12)
-    local st = Instance.new("UIStroke", win)
-    st.Color = Color3.fromRGB(195,45,45)
-    st.Thickness = 1.5
-
-    local tb = Instance.new("Frame")
-    tb.Size = UDim2.new(1,0,0,46)
-    tb.BackgroundColor3 = Color3.fromRGB(18,16,30)
-    tb.BackgroundTransparency = 0.05
-    tb.BorderSizePixel = 0
-    tb.Parent = win
-    Instance.new("UICorner", tb).CornerRadius = UDim.new(0,12)
-    local tbf = Instance.new("Frame")
-    tbf.Size = UDim2.new(1,0,0.5,0)
-    tbf.Position = UDim2.new(0,0,0.5,0)
-    tbf.BackgroundColor3 = Color3.fromRGB(18,16,30)
-    tbf.BackgroundTransparency = 0.05
-    tbf.BorderSizePixel = 0
-    tbf.Parent = tb
-
-    local tl = Instance.new("TextLabel")
-    tl.Size = UDim2.new(1,-20,1,0)
-    tl.Position = UDim2.new(0,16,0,0)
-    tl.BackgroundTransparency = 1
-    tl.Text = "Ruping  ·  Wrong Game"
-    tl.TextColor3 = Color3.fromRGB(225,220,245)
-    tl.Font = Enum.Font.GothamMedium
-    tl.TextSize = 13
-    tl.TextXAlignment = Enum.TextXAlignment.Left
-    tl.Parent = tb
-
-    local div = Instance.new("Frame")
-    div.Size = UDim2.new(1,0,0,1)
-    div.Position = UDim2.new(0,0,0,46)
-    div.BackgroundColor3 = Color3.fromRGB(35,30,58)
-    div.BorderSizePixel = 0
-    div.Parent = win
-
-    local icon = Instance.new("TextLabel")
-    icon.Size = UDim2.new(1,0,0,36)
-    icon.Position = UDim2.new(0,0,0,56)
-    icon.BackgroundTransparency = 1
-    icon.Text = "⚠"
-    icon.TextColor3 = Color3.fromRGB(255,90,90)
-    icon.Font = Enum.Font.GothamMedium
-    icon.TextSize = 26
-    icon.Parent = win
-
-    local ml = Instance.new("TextLabel")
-    ml.Size = UDim2.new(1,-40,0,40)
-    ml.Position = UDim2.new(0,20,0,96)
-    ml.BackgroundTransparency = 1
-    ml.Text = "This script only works in Fish It!\nPlease join the correct game."
-    ml.TextColor3 = Color3.fromRGB(200,185,225)
-    ml.Font = Enum.Font.Gotham
-    ml.TextSize = 11
-    ml.TextWrapped = true
-    ml.Parent = win
-
+    task.wait(1)
+    LP:Kick("[Ruping] This script only works in Fish It! Please join the correct game.")
     return
 end
 
@@ -226,118 +148,9 @@ local function setStatus(msg, isErr)
         or  Color3.fromRGB(80,225,130)
 end
 
-local function showKickPopup(msg)
+local function kickPlayer(msg)
     if sg and sg.Parent then sg:Destroy() end
-    local ksg = Instance.new("ScreenGui")
-    ksg.Name = "RupingKick"
-    ksg.ResetOnSpawn = false
-    ksg.DisplayOrder = 99999
-    ksg.IgnoreGuiInset = true
-    ksg.Parent = LP.PlayerGui
-
-    local kov = Instance.new("Frame")
-    kov.Size = UDim2.new(1,0,1,0)
-    kov.BackgroundColor3 = Color3.fromRGB(8,6,16)
-    kov.BackgroundTransparency = 0.3
-    kov.BorderSizePixel = 0
-    kov.Parent = ksg
-
-    local kwin = Instance.new("Frame")
-    kwin.Size = UDim2.new(0,400,0,220)
-    kwin.Position = UDim2.new(0.5,-200,0.5,-110)
-    kwin.BackgroundColor3 = Color3.fromRGB(13,12,22)
-    kwin.BackgroundTransparency = 0.04
-    kwin.BorderSizePixel = 0
-    kwin.Parent = ksg
-    Instance.new("UICorner", kwin).CornerRadius = UDim.new(0,12)
-    local ks = Instance.new("UIStroke", kwin)
-    ks.Color = Color3.fromRGB(195,45,45)
-    ks.Thickness = 1.5
-
-    local ktb = Instance.new("Frame")
-    ktb.Size = UDim2.new(1,0,0,46)
-    ktb.BackgroundColor3 = Color3.fromRGB(18,16,30)
-    ktb.BackgroundTransparency = 0.05
-    ktb.BorderSizePixel = 0
-    ktb.Parent = kwin
-    Instance.new("UICorner", ktb).CornerRadius = UDim.new(0,12)
-    local ktbf = Instance.new("Frame")
-    ktbf.Size = UDim2.new(1,0,0.5,0)
-    ktbf.Position = UDim2.new(0,0,0.5,0)
-    ktbf.BackgroundColor3 = Color3.fromRGB(18,16,30)
-    ktbf.BackgroundTransparency = 0.05
-    ktbf.BorderSizePixel = 0
-    ktbf.Parent = ktb
-
-    local ktitle = Instance.new("TextLabel")
-    ktitle.Size = UDim2.new(1,-20,1,0)
-    ktitle.Position = UDim2.new(0,16,0,0)
-    ktitle.BackgroundTransparency = 1
-    ktitle.Text = "Ruping  ·  License Error"
-    ktitle.TextColor3 = Color3.fromRGB(225,220,245)
-    ktitle.Font = Enum.Font.GothamMedium
-    ktitle.TextSize = 13
-    ktitle.TextXAlignment = Enum.TextXAlignment.Left
-    ktitle.Parent = ktb
-
-    local kdiv = Instance.new("Frame")
-    kdiv.Size = UDim2.new(1,0,0,1)
-    kdiv.Position = UDim2.new(0,0,0,46)
-    kdiv.BackgroundColor3 = Color3.fromRGB(35,30,58)
-    kdiv.BorderSizePixel = 0
-    kdiv.Parent = kwin
-
-    local icon = Instance.new("TextLabel")
-    icon.Size = UDim2.new(1,0,0,38)
-    icon.Position = UDim2.new(0,0,0,58)
-    icon.BackgroundTransparency = 1
-    icon.Text = "⚠"
-    icon.TextColor3 = Color3.fromRGB(255,90,90)
-    icon.Font = Enum.Font.GothamMedium
-    icon.TextSize = 28
-    icon.Parent = kwin
-
-    local kmsg = Instance.new("TextLabel")
-    kmsg.Size = UDim2.new(1,-40,0,44)
-    kmsg.Position = UDim2.new(0,20,0,100)
-    kmsg.BackgroundTransparency = 1
-    kmsg.Text = msg
-    kmsg.TextColor3 = Color3.fromRGB(200,185,225)
-    kmsg.Font = Enum.Font.Gotham
-    kmsg.TextSize = 11
-    kmsg.TextWrapped = true
-    kmsg.Parent = kwin
-
-    local ksub = Instance.new("TextLabel")
-    ksub.Size = UDim2.new(1,-40,0,20)
-    ksub.Position = UDim2.new(0,20,0,168)
-    ksub.BackgroundTransparency = 1
-    ksub.Text = "You will be removed from the game shortly..."
-    ksub.TextColor3 = Color3.fromRGB(120,110,155)
-    ksub.Font = Enum.Font.Gotham
-    ksub.TextSize = 10
-    ksub.Parent = kwin
-
-    local pb = Instance.new("Frame")
-    pb.Size = UDim2.new(1,-40,0,3)
-    pb.Position = UDim2.new(0,20,0,194)
-    pb.BackgroundColor3 = Color3.fromRGB(31,28,48)
-    pb.BorderSizePixel = 0
-    pb.Parent = kwin
-    Instance.new("UICorner", pb).CornerRadius = UDim.new(1,0)
-
-    local pbf = Instance.new("Frame")
-    pbf.Size = UDim2.new(1,0,1,0)
-    pbf.BackgroundColor3 = Color3.fromRGB(195,45,45)
-    pbf.BorderSizePixel = 0
-    pbf.Parent = pb
-    Instance.new("UICorner", pbf).CornerRadius = UDim.new(1,0)
-
-    TweenService:Create(pbf, TweenInfo.new(5, Enum.EasingStyle.Linear), {
-        Size = UDim2.new(0,0,1,0)
-    }):Play()
-
-    task.wait(5)
+    task.wait(0.5)
     LP:Kick("[Ruping] " .. msg)
 end
 
@@ -369,26 +182,19 @@ local function tryActivate()
 
     local data = http:JSONDecode(res.Body)
     if #data == 0 then
-        setStatus("Invalid license key.", true)
-        activateBtn.Text = "Activate"
-        activateBtn.BackgroundColor3 = Color3.fromRGB(100,65,200)
+        setStatus("Kicking: Invalid key...", true)
+        task.wait(1.5)
+        kickPlayer("Invalid license key. Purchase at discord.gg/ruping")
         return
     end
 
     local lic = data[1]
 
     if not lic.is_active then
-        setStatus("License is inactive.", true)
-        activateBtn.Text = "Activate"
-        activateBtn.BackgroundColor3 = Color3.fromRGB(100,65,200)
+        setStatus("Kicking: License inactive...", true)
+        task.wait(1.5)
+        kickPlayer("License is inactive. Contact the seller.")
         return
-    end
-
-    if not lic.is_permanent and lic.expires_at then
-        local expTs = lic.expires_at:match("(%d+)-(%d+)-(%d+)")
-        if expTs then
-            setStatus("", false)
-        end
     end
 
     local activeUsers = lic.active_users or {}
@@ -401,12 +207,9 @@ local function tryActivate()
     end
 
     if #cleanUsers >= lic.slots_total then
-        activateBtn.Text = "Activate"
-        activateBtn.BackgroundColor3 = Color3.fromRGB(100,65,200)
-        showKickPopup(
-            "License slot is full (" .. #cleanUsers .. "/" .. lic.slots_total .. ").\n" ..
-            "All slots are currently in use.\nContact the seller for more slots."
-        )
+        setStatus("Kicking: Slots full...", true)
+        task.wait(1.5)
+        kickPlayer("License slot is full (" .. #cleanUsers .. "/" .. lic.slots_total .. "). All slots are currently in use. Contact the seller.")
         return
     end
 
