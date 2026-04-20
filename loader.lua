@@ -184,7 +184,7 @@ local function tryActivate()
     if #data == 0 then
         setStatus("Kicking: Invalid key...", true)
         task.wait(1.5)
-        kickPlayer("Invalid license key. Purchase at discord.gg/ruping")
+        kickPlayer("Invalid license key.")
         return
     end
 
